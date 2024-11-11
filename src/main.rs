@@ -14,16 +14,14 @@ fn main() {
         .interact()
         .unwrap();
 
-    // println!("You selected: {}", options[selection]);
 
     //TAKE IN ARGUMENTS FOR CALCULATION 
-
     let inputs = Inputs{
         number1: get_input("Enter first number"),
         number2: get_input("Enter second number")
     };
     
-
+    //PERFORM OPERATION BASED ON SELECTION
     let result = match options[selection]{
         "Addition" => inputs.add(),
         "Subtraction" => inputs.subtract(),
@@ -32,29 +30,14 @@ fn main() {
         _ => None,
     };
 
-
+    //PRINT RESULT
     println!("The result is: {}", result.unwrap_or(0));
 
 
 
 }
 
-
-
-//addition
-
-
-
-
-//subtraction
-//multiplication
-//divisions
-
-
-// fn contains_only_integers(s: &str) -> bool{
-//     s.parse::<i32>().is_ok()
-// }
-
+//CUSTOM FUNCTION TO GET INPUT FROM USER
 fn get_input(prompt: &str) -> i32{
 loop{
     let input = Input::<String>::new()
